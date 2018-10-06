@@ -63,7 +63,7 @@ class Hook
 		if ProcAddrOrName is not integer ; Если это не адрес, а название функции.
 			this.ProcAddr := GetProcAddress(GetModuleHandle(ModuleName), ProcAddrOrName) ; Получаем адрес функции.
 		else
-			this.ProcAddr := ProcAddrOrName
+			this.ProcAddr := GetModuleHandle(ModuleName) + ProcAddrOrName
 		if NewProcAddr is not integer ; Если это не адрес, а название ахк функции.
 			NewProcAddr := RegisterCallback(NewProcAddr, CallBackOptions) ; Регистрируем функцию.
 		if (!this.ProcAddr || !NewProcAddr) ; Если адреса неверные.
